@@ -1,0 +1,26 @@
+.DS_Store
+organizer_front/node_modules
+organizer_back/venv
+organizer_back/notes/db.sqlite3
+organizer_front/dist
+
+
+# local env files
+.env.local
+.env.*.local
+*.env
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
