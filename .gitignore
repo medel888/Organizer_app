@@ -1,7 +1,7 @@
 .DS_Store
 organizer_front/node_modules
 organizer_back/venv
-organizer_back/notes/db.sqlite3
+organizer_back/db.sqlite3
 organizer_front/dist
 
 
