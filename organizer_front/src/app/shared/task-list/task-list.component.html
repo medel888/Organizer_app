@@ -1,0 +1,26 @@
+<nav class="nav justify-content-end mb-3">
+  <button class="btn btn-primary mx-1" (click)="update()">Actualizar</button>
+  <button class="btn btn-danger mx-1">Eliminar</button>
+</nav>
+
+@defer {
+<div class="row row-cols-4 g-2">
+  @for (task of tasksList; track $index) {
+  <div class="px-2">
+    <div class="card p-0">
+      <div class="card-header">
+        {{ task.title }}
+      </div>
+      <div class="card-body">
+        <p>{{ task.description }}</p>
+      </div>
+      <div class="card-footer text-muted">
+        {{ task.category.name }} {{ task.date }}
+      </div>
+    </div>
+  </div>
+  }
+</div>
+}@placeholder {
+<p>Cargando...</p>
+}
