@@ -1,11 +1,10 @@
 import { Category } from "./category";
 
 export interface Task {
+    title:       string;
+    description: string;
     category:    Category;
     completed:   boolean;
     date:        Date;
-    description: string;
-    id:          number;
     priority:    string;
-    title:       string;
 }

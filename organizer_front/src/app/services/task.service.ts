@@ -1,16 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+import { Task } from '../interfaces/task';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:8000/api/tasks/';  // Asegúrate de que esta URL sea correcta
+  private apiUrl = 'http://localhost:8000/api/tasks/';
 
   constructor(private http: HttpClient) { }
 
-  getTasks(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getTasks() {
+    return this.http.get<Task[]>(this.apiUrl);
   }
+
+  /* createTask(task: Task){
+    return this.http.post<Task>(this.apiUrl, task);
+  } */
 }
