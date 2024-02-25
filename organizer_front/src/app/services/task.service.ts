@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Task } from '../interfaces/task';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +17,9 @@ export class TaskService {
 
   createTask(task: any){
     return this.http.post<any>(this.apiUrl, task);
+  }
+
+  getSingleTask(id: number){
+    return this.http.get<Task>(`${this.apiUrl}${id}`);
   }
 }
