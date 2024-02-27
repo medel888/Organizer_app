@@ -2,15 +2,33 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
-        path: 'home',
-        loadComponent: () => import('./pages/home/home.component'), 
-        title: 'Home'
-    },{
-        path: 'task',
-        loadComponent: () => import('./pages/task-detail/task-detail.component'),
-        title: 'Task'
+        path: 'organizer',
+        loadComponent: () => import('./organizer/organizer.component'),
+        children: [
+            {
+                path: 'home',
+                loadComponent: () => import('./organizer/pages//home/home.component'), 
+                title: 'Organiador'
+            },{
+                path: 'all',
+                loadComponent: () => import('./organizer/pages/all-task/all-task.component'),
+                title: 'Todas las tareas'
+            },{
+                path: 'scheduled',
+                loadComponent: () => import('./organizer/pages/completed-task/completed-task.component'),
+                title: 'Tareas programadas'
+            },{
+                path: 'important',
+                loadComponent: () => import('./organizer/pages/important-task/important-task.component'),
+                title: 'Tareas importantes'
+            },{
+                path: 'completed',
+                loadComponent: () => import('./organizer/pages/completed-task/completed-task.component'),
+                title: 'Tareas completadas'
+            }
+        ]
     },{
         path: '**',
-        redirectTo: 'home'
+        redirectTo: 'organizer/home'
     }
 ];
