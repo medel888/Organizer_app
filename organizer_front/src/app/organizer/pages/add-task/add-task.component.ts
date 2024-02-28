@@ -4,15 +4,14 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { TaskService } from '../../services/task.service';
 
-
 @Component({
-  selector: 'app-task-form',
+  selector: 'app-add-task',
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './task-form.component.html',
-  styleUrl: './task-form.component.css'
+  templateUrl: './add-task.component.html',
+  styleUrl: './add-task.component.css'
 })
-export class TaskFormComponent {
+export default class AddTaskComponent {
   taskForm = new FormGroup({
     title: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),

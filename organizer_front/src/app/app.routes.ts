@@ -15,7 +15,7 @@ export const routes: Routes = [
                 title: 'Todas las tareas'
             },{
                 path: 'scheduled',
-                loadComponent: () => import('./organizer/pages/completed-task/completed-task.component'),
+                loadComponent: () => import('./organizer/pages/scheduled-task/scheduled-task.component'),
                 title: 'Tareas programadas'
             },{
                 path: 'important',
@@ -25,6 +25,10 @@ export const routes: Routes = [
                 path: 'completed',
                 loadComponent: () => import('./organizer/pages/completed-task/completed-task.component'),
                 title: 'Tareas completadas'
+            },{
+                path: 'add',
+                loadComponent: () => import('./organizer/pages/add-task/add-task.component'),
+                title: 'Agregar tarea'
             }
         ]
     },{

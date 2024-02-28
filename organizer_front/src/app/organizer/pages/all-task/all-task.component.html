@@ -1,1 +1,17 @@
-<p>all-task works!</p>
+@defer () {
+    <div class="row row-cols-4 g-2">
+        @for (task of tasksList; track $index) {
+            <div class="col p-1">
+                <div class="card" style="width: 18rem">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ task.title }}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Trabajo</h6>
+                      <p class="card-text">{{ task.description }}</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}@placeholder {
+    <p>Cargando...</p>
+}
