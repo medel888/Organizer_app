@@ -11,8 +11,7 @@ class Task(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='tasks')
     description = models.TextField(blank=True, null=True)
     date = models.DateField()
-    start_time = models.TimeField(blank=True, null=True)
-    end_time = models.TimeField(blank=True, null=True)
+    time = models.TimeField(blank=True, null=True)
     completed = models.BooleanField(default=False)
 
     def __str__(self):

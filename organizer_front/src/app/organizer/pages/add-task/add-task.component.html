@@ -2,41 +2,46 @@
     <div class="mb-3">
       <label for="title" class="form-label">Titulo</label>
       <input id="title" class="form-control" type="text" formControlName="title"/>
+      <span class="form-text text-danger">{{ getTitleError() }}</span>
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Categoría</label>
+      <div class="input-group">
+        <select class="form-select" formControlName="category" id="category">
+          @for (category of categories; track $index) {
+            <option value="{{ category.id }}">{{ category.name }}</option>
+          }
+        </select>
+        <a [routerLink]="['/organizer/categories']" class="input-group-text btn btn-primary">Nueva</a>
+      </div>
+      <span class="form-text text-danger">{{ getCategoryError() }}</span>     
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">Descripción</label>
       <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
+      <span class="form-text text-danger">{{ getDescriptionError() }}</span>
     </div>
     <div class="mb-3">
-      <label for="date" class="form-label">Fecha</label>
-      <input id="date" class="form-control" type="date" formControlName="date"/>
+      <div class="row">
+        <div class="col-6">
+          <label for="date" class="form-label">Fecha</label>
+          <input id="date" class="form-control" type="date" formControlName="date"/>
+          <span class="form-text text-danger">{{ getDateError() }}</span>
+        </div>
+        <div class="col-6">
+          <label for="time" class="form-label">Hora</label>
+          <input id="time" class="form-control" type="time" formControlName="time"/>
+          <span class="form-text text-danger">{{ getTimeError() }}</span>
+        </div>
+      </div>
     </div>
     <!-- <div class="mb-3">
       <label for="date" class="form-label">Hora</label>
       <input id="date" class="form-control" type="time" formControlName="date"/>
     </div> -->
     <div class="mb-3">
-      <label for="category" class="form-label">Categoría</label>
-      <div class="input-group">
-        <select class="form-select" formControlName="category" id="category">
-          <option value="1">Personal</option>
-        </select>
-        <a class="input-group-text btn btn-primary">Nueva</a>
-      </div>     
-    </div>
-
-    <div class="mb-3">
-      <label for="priority" class="form-label">Prioridad</label>
-      <select class="form-select" formControlName="priority" id="priority">
-        <option value="L">Baja</option>
-        <option value="M">Media</option>
-        <option value="H">Alta</option>
-      </select>
-    </div>
-    <div class="mb-3">
       <button type="submit" class="btn btn-primary" [disabled]="!taskForm.valid">
         Agregar
       </button>
     </div>
-    <p>Form Status: {{ taskForm.status }}</p>
   </form>

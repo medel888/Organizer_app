@@ -15,7 +15,7 @@ export default class OrganizerComponent {
   showButtons = signal <boolean> (true)
 
   constructor(private router: Router){
-    if(this.router.url == '/organizer/add'){
+    if(this.router.url == '/organizer/add' || this.router.url == '/organizer/categories'){
       this.showButtons.set(false);
     }
   }

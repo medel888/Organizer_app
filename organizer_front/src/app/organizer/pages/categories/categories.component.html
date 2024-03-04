@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-sm-12 col-md-6 p-3">
+    <div class="container-fluid border rounded">
+      <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label mt-3">Nombre de la categoría</label>
+          <input id="name" class="form-control" type="text" formControlName="name"/>
+          <span class="form-text text-danger">{{ getNameError() }}</span>
+          
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary" [disabled]="!categoryForm.valid">
+            Agregar
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="container-fluid border rounded p-2 mt-3"> 
+      <button (click)="redirectToAddPage()" class="btn btn-primary">Regresar</button>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-6 p-3">
+    <div class="container-fluid border rounded p-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col"> - </th>
+          </tr>
+        </thead>
+        <tbody>
+          @defer () {
+            @for (category of categories(); track $index) {
+                <tr>
+                  <th scope="row">{{ $index + 1 }}</th>
+                  <td>{{ category.name }}</td>
+                  <td style="width: 20%;">
+                      <button (click)="delete(category.id)" class="btn btn-sm btn-danger">Eliminar</button>
+                  </td>
+                </tr>
+            }@empty {
+              <tr>
+                <th scope="row">-</th>
+                <td>No hay categorias</td>
+                <td style="width: 20%;">-</td>
+              </tr>
+            }
+          }@placeholder() {
+            <tr>
+              <th scope="row">-</th>
+              <td>Cargando...</td>
+              <td style="width: 20%;">-</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

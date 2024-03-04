@@ -29,6 +29,10 @@ export const routes: Routes = [
                 path: 'add',
                 loadComponent: () => import('./organizer/pages/add-task/add-task.component'),
                 title: 'Agregar tarea'
+            },{
+                path: 'categories',
+                loadComponent: () => import('./organizer/pages/categories/categories.component'),
+                title: 'Categorias'
             }
         ]
     },{
